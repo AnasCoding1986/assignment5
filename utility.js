@@ -5,4 +5,7 @@
 // https://github.com/AnasCoding1986/assignment5
 
 
-console.log("utility");
+function addClass(id, classs) {
+    let elm = document.getElementById(id);
+    elm.classList.add(classs);
+}
