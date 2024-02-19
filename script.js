@@ -29,7 +29,7 @@ for (const chair of chairs) {
             let remaingSeatTxtNum = parseInt(remaingSeat.innerText);
             remaingSeatTxtNum = remaingSeatTxtNum - 1;
             remaingSeat.innerText = remaingSeatTxtNum;
-
+            e.target.setAttribute("disabled", "disabled");
             if (count === 1) {
                 Seat1P.innerHTML = e.target.innerText;
                 Seat1.classList.remove("hidden");
@@ -52,13 +52,24 @@ for (const chair of chairs) {
                 Seat4P.innerHTML = e.target.innerText;
                 Seat4.classList.remove("hidden");
                 totalPriceSpan.innerText = 2200;
-                
-                if (clicked === true) {
-                    grandPriceSpan.innerText = applyCoupon();
-                }else{
-                    grandPriceSpan.innerText = 2200;
-                }
-                
+                grandPriceSpan.innerText = 2200;
+                document.getElementById("couponBtn").addEventListener("click", ()=>{
+                    document.getElementById("couponBtn").classList.add("hidden");
+                    document.getElementById("couponInp").classList.add("hidden");
+                    
+                    let couponInpElm = document.getElementById("couponInp");
+                    let couponInpElmTxt = couponInpElm.value;
+                    if (couponInpElmTxt === "NEW15") {
+                        document.getElementById("applyP").innerText = "You got 330 taka discount";
+                        document.getElementById("applyP").classList.remove("hidden");
+                        grandPriceSpan.innerText = 1870;
+                    }else if(couponInpElmTxt === "Couple 20"){
+                        document.getElementById("applyP").innerText = "You got 4400 taka discount";
+                        document.getElementById("applyP").classList.remove("hidden");
+                        grandPriceSpan.innerText = 1760;
+                    }
+                })
+                             
             }
         }else{
             alert("You can't select more than4 seats!");
@@ -66,3 +77,14 @@ for (const chair of chairs) {
 
     });
 }
+
+document.getElementById("phoneInp").addEventListener("input", ()=>{
+    checkInput();
+})
+
+document.getElementById("continueBtn").addEventListener("click", ()=>{
+    let firstSection = document.getElementById("first");
+    let secondSection = document.getElementById("second");
+    firstSection.classList.remove("hidden");
+    secondSection.classList.add("hidden");
+})

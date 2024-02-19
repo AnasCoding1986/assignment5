@@ -15,7 +15,7 @@
 
 <body class="px-32 py-12">
 
-    <section class="">
+    <section id="first" class="">
         <!-- =============navbar start============= -->
     <div class="navbar raleway-normal bg-base-100">
         <div class="navbar-start">
@@ -64,7 +64,7 @@
     <!-- =============best offer start============= -->
     <div class="mt-28">
         <h4 class="text-center text-[#030712] raleway-normal font-bold text-4xl">Best offers for you</h4>
-        <div class="flex gap-6 mt-12">
+        <div class="flex justify-between gap-6 mt-12">
             <div class="flex">
                 <div class="inter-regular p-10 bg-[#FFBF0F] rounded-l-3xl">
                     <h4 class="text-[#030712CC] text-4xl font-extrabold">15% OFF</h4>
@@ -302,8 +302,10 @@
 
                     <div class="relative">
                         <input id="couponInp" class="rounded-xl relative p-5 mt-4 bg-white w-full" type="text" placeholder="Have any copupon?">
-                        <button id="coupon" onclick="applyCoupon()" class="btn bottom-2 right-3 border-0 absolute bg-[#1DD100] text-white rounded-lg">Apply</button>
-                        <p class="hidden inter-regular my-5">You got <span>0</span> taka discount</p>
+
+                        <button disabled id="couponBtn" onclick="applyCoupon()" class="btn bottom-2 right-3 border-0 absolute bg-[#1DD100] text-white rounded-lg">Apply</button>
+
+                        <p id="applyP" class="hidden inter-regular my-5">You got <span>0</span> taka discount</p>
                     </div>
 
                     <div class="mt-6 flex justify-between">
@@ -312,18 +314,22 @@
                     </div>
                 </div>
 
-                <label class="text-[#030712] text-base font-semibold inter-regular" for="">Passenger Name*</label>
-                <input id="couponInp" type="text" placeholder="Enter your name" class="rounded-3xl p-6 mt-4 mb-6 bg-white w-full">
+                <form action="">
+                    <label class="text-[#030712] text-base font-semibold inter-regular" for="couponInp">Passenger Name*</label>
+                    <input id="couponInp" type="text" placeholder="Enter your name" class="rounded-3xl p-6 mt-4 mb-6 bg-white w-full">
 
 
-                <label class="text-[#030712] text-base font-semibold inter-regular" for="">Phone Number*</label>
-                <input type="number" placeholder="Enter your phone number" class="rounded-3xl p-6 mt-4 mb-6 bg-white w-full">
+                    <label class="text-[#030712] text-base font-semibold inter-regular" for="phoneInp">Phone Number*</label>
+                    <input required id="phoneInp" type="number" placeholder="Enter your phone number" class="rounded-3xl p-6 mt-4 mb-6 bg-white w-full">
 
 
-                <label class="text-[#030712] text-base font-semibold inter-regular" for="">Email ID</label>
-                <input type="text" placeholder="Enter your email id" class="rounded-3xl p-6 mt-4 mb-6 bg-white w-full">
+                   <label class="text-[#030712] text-base font-semibold inter-regular" for="">Email ID</label>
+                   <input type="text" placeholder="Enter your email id" class="rounded-3xl p-6 mt-4 mb-6 bg-white w-full">
 
-                <button class="w-full bg-[#1DD100] text-white text-xl font-extrabold raleway-normal h-14 btn">Next</button>
+                   <button onclick="hideMain()" disabled id="nextBtn" class="w-full bg-[#1DD100] text-white text-xl font-extrabold raleway-normal h-14 btn">Next</button> 
+
+                </form>
+
                 <div class="flex justify-around">
                     <div><a href="">Terms and Conditions</a></div>
                     <div><a href="">Cancellation Policy</a></div>
@@ -336,7 +342,7 @@
     <!-- =============main ticket section end============= -->
     </section>
 
-    <section class="bg-[#F2F1F1] min-h-screen hidden flex justify-center items-center">
+    <section id="second" class="bg-[#F2F1F1] min-h-screen hidden flex justify-center items-center">
         <div class="p-12 bg-white text-center">
             <div class="relative left-56 my-7"><img src="images/success.png" alt=""></div>
             <div><p class="text-[#27AE60] text-2xl font-bold inter-regular">SUCCESS</p></div>
@@ -349,7 +355,7 @@
                     Shortly you will find a confirmation in your email.
                 </p>
             </div>
-            <button class="px-16 py-3 mt-5 rounded-3xl bg-[#27AE60]">Continue</button>
+            <button id="continueBtn" class="px-16 py-3 mt-5 rounded-3xl bg-[#27AE60]">Continue</button>
         </div>
     </section>
     
