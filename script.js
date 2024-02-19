@@ -11,11 +11,14 @@ let Seat3 = document.getElementById("seat3");
 let Seat4 = document.getElementById("seat4");
 
 let totalPriceSpan = document.getElementById("toatlPrice");
+let grandPriceSpan = document.getElementById("grandPrice");
+
+
  
 for (const chair of chairs) {
     // Attach click event listener to each element
     chair.addEventListener('click', function(e) {
-        // Add a class to the clicked element (using e.target)       
+        // Add a class to the clicked element (using e.target)   
         if (count < 4) {
             count = count += 1;
             let selectedSeatNum = document.getElementById("seatNum");
@@ -26,28 +29,33 @@ for (const chair of chairs) {
             let remaingSeatTxtNum = parseInt(remaingSeat.innerText);
             remaingSeatTxtNum = remaingSeatTxtNum - 1;
             remaingSeat.innerText = remaingSeatTxtNum;
-            console.log(e.target.innerText);
+
             if (count === 1) {
                 Seat1P.innerHTML = e.target.innerText;
                 Seat1.classList.remove("hidden");
                 totalPriceSpan.innerText = 550;
+                grandPriceSpan.innerText = 550;
             }
             else if (count === 2) {
                 Seat2P.innerHTML = e.target.innerText;
                 Seat2.classList.remove("hidden");
                 totalPriceSpan.innerText = 1100;
+                grandPriceSpan.innerText = 1100;
             }
             else if (count === 3) {
                 Seat3P.innerHTML = e.target.innerText;
                 Seat3.classList.remove("hidden");
                 totalPriceSpan.innerText = 1650;
+                grandPriceSpan.innerText = 1650;
             }
             else if (count === 4) {
                 Seat4P.innerHTML = e.target.innerText;
                 Seat4.classList.remove("hidden");
                 totalPriceSpan.innerText = 2200;
+                let grandTotal = applyCoupon();
+                grandPriceSpan.innerText = grandTotal;
+                
             }
-            console.log(typeof(totalPriceSpan));
         }else{
             alert("You can't select more than4 seats!");
         }
