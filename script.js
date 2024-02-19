@@ -52,8 +52,12 @@ for (const chair of chairs) {
                 Seat4P.innerHTML = e.target.innerText;
                 Seat4.classList.remove("hidden");
                 totalPriceSpan.innerText = 2200;
-                let grandTotal = applyCoupon();
-                grandPriceSpan.innerText = grandTotal;
+                
+                if (clicked === true) {
+                    grandPriceSpan.innerText = applyCoupon();
+                }else{
+                    grandPriceSpan.innerText = 2200;
+                }
                 
             }
         }else{

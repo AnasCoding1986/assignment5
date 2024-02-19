@@ -9,6 +9,10 @@ function addClass(id, classs) {
     elm.classList.add(classs);
 }
 
+let clicked = document.getElementById("couponBtn").addEventListener("click", ()=>{
+    return true;
+})
+
 function applyCoupon() {
     let couponInpElm = document.getElementById("couponInp");
     let couponInpElmTxt = couponInpElm.value;
